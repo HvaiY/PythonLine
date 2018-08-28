@@ -1,0 +1,198 @@
+linux 命令 command  
+  ls 显示当前目录的所有文件、文件夹
+   ls -l 列表显示
+   ls -lh 人性化列表显示
+   ls -lha 人性化显示所有文件和文件夹(包含隐藏的)
+   ls -a 显示所有文件、文件夹 隐藏文、文件夹
+   ls -l -a  列表显示所有文件和文件夹 可以合并 ls -la
+目录相关
+  mkdir aa 创建aa名字的文件夹
+  mkdir .aa 创建隐藏的aa名字文件夹  
+  rm -rf aa 删除目录  无论是否为空 (递归删除并且不提示是不是要删除)
+  rmdir aa 删除文件夹
+  mkdir -p a/B/C/Desktop  一次创建多重目录文件夹 
+  
+文件相关
+  touch aa.txt  如果不存在就 创建文件空的   如果存在就改变创建时间信息
+  touch .aa.txt 创建隐藏文件
+  rm aa.txt  删除文件
+  rm .aa.txt 删除隐藏文件aa.txt 
+
+  关于 . 的使用  ..上一级目录  .在文件或者文件夹前面 代表它是隐藏的
+  cd Desktop 切换目录   可以Tab键快速补全 
+  cd .. 切换到上级目录
+  cd *************** 命令输错取消  ctrl + c 即可  
+  另外上下方向键可以找到以前输过的命令
+通配符 * ？
+   ls *.txt  ls ?.txt
+   --  ?:代表一个字符    *：代表任意字符
+   -- [1a4] 匹配字符组中的任意一个
+   -- [a-f] 匹配 a-f 的任意一个
+   
+cd命令扩展
+   cd  切换到 home目录
+   cd ~ 切换到 home目录
+   cd . 当前目录
+   cd ..切换到上级目录
+   cd - 切换到上次目录 也就是最近两次目录间切换
+相对目录和绝对目录
+  绝对目录  以 /或者~ 开头
+  相对路径这没有 /或者~ 
+删除文件
+  rm 是直接删除文件或者目录   不能恢复
+  rm -rf 递归删除目录  r 递归  f 强制删除  如果文件不存在也不提示
+  rm -f * 删除目录所有、文件所有
+
+tree  
+   直接输入 tree  树状图显示文件目录结构   
+    tree -d 只显示目录 不显示文件
+cp  复制
+  cp 源文件目录包含文件 新目录   如果文件存在就直接覆盖 
+  mv 源文件目录包含文件 新目录  
+   cp -i 源文件目录包含文件 新目录    会提示是否覆盖  y/n
+   mv -i 同上         如果同一个目录的话可以实现重命名哦 
+   cp -r 源目录 目标文件夹   这就是 复制目录 
+   
+文件查看
+   cat 文件目录名称  这个会全部显示
+   more 文件目录名称  这个部分显示
+   cat -b cc.txt 查看文件并显示非空行号
+   cat -n cc.txt 查看文件并显示所有行号   
+
+grep 文本搜索工具 命令
+   grep -n aabbcc cc.txt  在文档中搜索aabbcc 并显示所在行   区分大小写
+   grep -vn aabbcc cc.txt 在文档中搜索 不包含aabbcc 的所有行 并显示行号
+   grep -n aabbcc cc.txt  在文档中搜索aabbcc 并显示所在行   区分大小写
+   grep -in "aa bb" cc.txt  在文档中搜索aabbcc 并显示所在行   不区分大小写
+ 模式查找
+    ^a 行首  搜索以a开头的行     grep ^z cc.txt
+	bbb$ 行尾 收索以bbb结束的行  grep -n a$ cc.txt
+	
+echo  
+   echo会在终端中显示指定文字 通常会和重定向联合使用
+  重定向  > 覆盖  >>追加到文档末尾  将终端的信息保存到文档 很好玩  ls  tree  什么的都可以使用
+   echo hello > a  相当于 创建了a文件并且写入hello
+
+| 管道
+  把一个命令的输出 可以通过管道作为另外一个命令的输入 
+     ls -lha ~ | more  显示home 目录下的 所有文件及文件夹信息 more 分屏显示
+     ls -lha ~ | grep -n Do   显示home 目录下的 所有文件及文件夹信息 搜索出 Do相关的信息
+   
+ -----------------------------------------------------------------------
+ shutdown 略
+  网络相关***********
+  ifconfig 查看网络配置信息  IP 掩码之类的
+   ifconfig | grep inet >> cc  使用管道来快速找到ip信息存储到cc文档中
+   
+ssh   
+  SSH远程工具  ，压缩并加密的哦  安全可靠
+  
+  端口：
+    服务      端口号
+	SSH服务器  22
+	web服务器  80
+	Https      443
+	Ftp服务器  21
+  --远程工具  putty  和xshell 都可以
+        scp 命令适用于mac 和linux系统的文件上传和下载  端口是 22
+  
+ -- windows 文件下载上传工具 
+     FileZilla 用的是sftp 端口是 21   
+	 
+--权限--用户 --组
+   图片权限组
+-- 修改权限
+  chmod -rwx 文件地址   修改文件的权限 去除读写执行的权限                
+  chmod +rwx 文件地址    修改文件的权限 增加读写执行的权限
+  chmod -r 文件地址  修改文件的权限 去除可读权限
+  如果是目录   文件地址改成目录就可以了
+     一个目录如果没有可读权限 那么就无法查看里面的文件
+--用户
+ su hvai : 使用另外一个身份登陆 (root)
+ sudo  使用 root 执行命令
+  --组
+   sudo groupadd dev  添加 组dev
+     cat /etc/group    查看组信息
+   sudo groupdel dev   删除组dev
+   sudo chgrp -R dev HvaiFile ：使用 超级用户修改目录HvaiFile 所属组dev  -R : 递归修改所有目录
+ 
+ --用户
+    sudo useradd -m -g dev python 添加用户  -m 自动创建home目录  -g 指定组  python 用户名
+	sudo passwd python  给Python 设置密码
+    sudo userdel -r python  :删除用户Python  同时删除其相关文件目录 （-r）	
+
+--  查看用户信息  
+    id python  查看 python 用户的信息 用户名 所在组等
+	who 有哪些用户登录了 
+	whoami 当前登录的用户
+--  主组
+	主组： sudo usermod -g dev lisi 更改用户lisi 主组为dev 
+	附加组： sudo usermod -G sudo lisi 给用户lisi添加附加值权限  sudo 注意： -G(大写)
+	指定shell sudo usermod -s /bin/bash lisi 指定shell给 lisi
+	 
+--which 查看执行命令程序所在位置
+  which ls  查看ls命令目录  
+  
+--su -python  切换到用户python并同时切换目录 (-)  exit回到之前的用户
+
+--chown 修改文件或者目录的拥有者
+   chown 用户名  文件或者目录 
+--chmod 修改权限的数字表达
+   chmod  -R 777 aa.txt 修改aa.txt 的权限 为可读可写可执行 -R 递归修改所有目录
+      r : 4  
+	  w ：2
+	  x : 1 
+	 表示： 拥有者权限  组权限  其它用户权限
+	  777     4+2+1     4+2+1     4+2+1 
+      755     4+2+1     4+0+1     4+0+1
+	  644     4+2+1     4+0+0     4+0+0
+
+ 
+ -------***********--
+ 系统相关
+ 
+   date ：查看当前系统时间
+   cal :查看当前日期  cal -y 查看一年的日历
+   df -h ：查看磁盘空间  -h 人性话显示
+   du -h 目录   查看当前显示目录下的空间大小  可以指定目录
+  
+ -- -- --  --
+  ps aux :查看进程的详细状况 ps : 仅代表当前终端启动的进程
+      a :显示终端上所有的进程  包括其他用户进程
+	  u :显示进程的详细状态
+	  x :显示没有控制终端的进程
+  top 动态显示运行中的进程并排序
+  kill -9 进程编号   杀死进程  -9 强制杀死
+  
+  -- 其他命令 重要  
+     find 目录 -name "*.*" :找到指定目录中的文件   目录不指定表示当前的
+	 
+	 ln -s 源目录  快捷方式名称   ： 这就是给源目录文件/文件夹创建快捷方式， -s 表示软链接 ，没有-s就是硬链接 它则是相当于该文件的另外一个备份  但是两个文件内容是同步的
+      ln -s aa/p.py  xdp.py
+--打包压缩  
+    tar:打包但是不压缩
+	   tar -cvf py.tar 01.py 02.py 03.py ：将 01.py  02.py 03.py  打包成 py.tar (这里是都在同一个目录)
+	   tar -xvf py.tar 将py.tar 解包
+	   --gzip 压缩  需要配合打包
+	   tar -zcvf p.tar.gz *.py 将当前目录下所有的py文件打包压缩为p.tar.gz
+	   tar -zxvf p.tar.gz -C /home/python/Desktop/cc 解压包 p.tar.gz 到指定的目录 ，如果没有-C 则为当前目录
+       --bzip2压缩 需要配合打包
+	   tar -jcvf p.tar.bz2 *.py  将当前的py文档打包成 bzip2压缩
+	   tar -jxvf p.tar.bz2 -C vv 将压缩文档p.tar.bz2 通过bzip2 解压到目录 vv中   如果没有-C 则为当前目录
+	   
+--	    软件安装 
+       sudo  apt install sl :安装软件sl 小火车
+	   
+	   卸载软件 sudo apt remove sl 
+	   
+	   更新软件 sudo apt upgrade  更新已安装的包
+	   
+	   ---更新软件选择合适的软件镜像比较合适
+
+	   
+--
+
+
+   	  
+
+	 
