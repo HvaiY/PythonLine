@@ -4,9 +4,13 @@
 def say():
     print("呵呵")
 
+def get_name():
+    return __name__
 
 print(__name__)
 
 if __name__ == "__main__":
     say()
-    print("hehe")
+    print("hehe") 
+    print(get_name())
+

@@ -16,7 +16,7 @@ print(names_list.index("李四"))
 #  2.修改
 names_list[3] = "大海"
 # 增加
-names_list.append("dahai")  # 在列表的后面追加数据
+names_list.append("dahai")  # 在列表的后面追加数据  注意 C# 中 数组长度是固定的
 names_list.insert(2, "小丫丫")  # 在列表中指定的索引插入数据
 temp_list = ["孙悟空", "猪哥"]
 

@@ -5,3 +5,4 @@ num = 0
 while num < 5:
     print("hello python %d" % num)
     num += 1
+print(num)

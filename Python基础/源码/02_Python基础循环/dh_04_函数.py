@@ -10,7 +10,7 @@ def say_hello():  # 函数定义 函数的上方需要有两空白行
 
 
 print(name)
-say_hello()  # 函数调用 主动调用才会执行函数 ctrl + q 可以直接看到函数的说明
+say_hello()  # 函数调用 主动调用才会执行函数 ctrl + q 可以直接看到函数的说明这是在PyChar里面有效
 print(name)
 
 #  注 因为Python是解释性语言，需要一行一行的解释执行，

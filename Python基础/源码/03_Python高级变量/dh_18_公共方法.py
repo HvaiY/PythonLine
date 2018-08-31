@@ -23,5 +23,5 @@ print(num2_list)
 num_tuple = ("啊啊", 12, True) * 5
 print(num_tuple)
 
-# num_dic = {"name": "大海"} * 5  # 改操作无法实现
+# num_dic = {"name": "大海"} * 5  # 该操作无法实现
 # print(num_dic)　

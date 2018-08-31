@@ -17,3 +17,5 @@ def print_info(name, gender=True):
 print_info("小明")
 # 指定就是用参数值
 print_info("小明", gender=False)
+
+print_info("小明", False) # 缺省值可以不用明确指定，但是出现多个缺省值 那么一定要明确指定

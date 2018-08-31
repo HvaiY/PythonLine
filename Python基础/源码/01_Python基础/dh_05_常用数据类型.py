@@ -20,8 +20,8 @@ print("我是："+name)
 -------------------
 数字型
 int  long（python 没有long数据类型了）
-bool
-float True 真  也就是1   假 false 表示
+bool True 真  也就是1   假 false 表示
+float 
 ---------------------
 非数字型
  字符串
@@ -60,6 +60,10 @@ print(one*10)
 num = 32
 num2 = int("18")
 print(num*num2)
+
+t1="12"
+t2=13
+print(t2-int(t1))
 
 
 

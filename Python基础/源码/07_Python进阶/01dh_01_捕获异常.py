@@ -6,3 +6,4 @@ except Exception as msg:
     print("请输入正确的整数%s" % msg)
 
 print("-" * 50)
+print(float(2)) # 转为浮点类型

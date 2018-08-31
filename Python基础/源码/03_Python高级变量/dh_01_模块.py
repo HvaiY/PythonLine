@@ -1,7 +1,5 @@
 def print_line(char, times):
-
     """打印分割线
-
     :param char: 分割使用字符
     :param times:字符重复次数
     """

@@ -6,6 +6,6 @@ count = names_list.count("赵六")
 
 print("赵六在列表中出现了%d次" % count)
 
-names_list.remove("赵六")  # 异常出现的第一个赵六 ctrl + q　看帮助文档
+names_list.remove("赵六")  # 移除出现的第一个赵六 ctrl + q　看帮助文档
 
 print(names_list)

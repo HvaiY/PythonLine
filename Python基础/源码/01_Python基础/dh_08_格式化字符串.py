@@ -16,7 +16,7 @@ print("---------------------")
 num = 23
 
 print("学号是 %d" % num)
-print("学号是 %0d" % num)  # 自动补全
+print("学号是 %0d" % (num-3.3))  # 自动补全
 
 price = 8.5
 weight = 7.5

@@ -4,7 +4,7 @@ class Cat:
         print("初始化发方法%s" % new_name)
 
     def eat(self):
-        print("%爱吃鱼" % self.name)
+        print("%s爱吃鱼" % self.name)
 
     def __del__(self):
         print("%s 被销毁了" % self.name)

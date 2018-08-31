@@ -10,7 +10,6 @@ address_list = address_list.__add__([12, "aa"])
 address_list.append("周")
 address_list.append("大")
 address_list.append("福")
-
 for addre in address_list:
     print(type(addre))
     print(addre)

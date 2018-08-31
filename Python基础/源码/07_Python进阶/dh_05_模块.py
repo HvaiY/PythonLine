@@ -6,7 +6,7 @@ import dh_05_02模块 as CatModule
 DogModule.sayhello()
 CatModule.sayhello()
 
-wc = DogModule.Dog("旺财")
+wc = DogModule.Dog("旺财") # 对象
 wc.bark()
 
 tom = CatModule.Cat("tom")

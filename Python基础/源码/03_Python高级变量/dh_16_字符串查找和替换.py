@@ -10,4 +10,4 @@ print(hello_str.find("llo"))
 print(hello_str.replace("world", "python"))
 print(hello_str)
 
-print(hello_str.rindex("l"))  # 从右边开始查找索引位置
+print(hello_str.rindex("l"))  # 从右边开始查找索引位置 总共长度11位  最大索引是10 。

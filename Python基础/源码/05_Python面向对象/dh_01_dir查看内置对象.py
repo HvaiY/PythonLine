@@ -13,3 +13,5 @@ print(dir(demo))
 # 调用内置函数 查看文档
 print(demo.__doc__)
 
+a=122
+print(dir(a))
