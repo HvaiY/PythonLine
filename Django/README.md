@@ -1,0 +1,12 @@
+### Django  使用
+ - 配置环境(window10) 安装pip 
+   - 安装Python3.6 略(需要添加环境变量)
+   - cmd 输入 python 查看Python版本
+   - 打开资源文件 解压`pip-18.0.tar`  使用管理员打开命令窗(cmd)输入`python setup.py install` 自动安装
+   - 输入`pip`查看看安装成功否
+   - 安装成功后继续安装 Python虚拟环境输入`pip install virtualenv` 等待安装完成
+   - 找到python安装目录并找到Scripts 添加到环境变量
+   - 输入 `virtualven Test`可以创建一个叫做Test的测试虚拟环境（当前目录）
+   - 我这边创建了在：C:\Windows\system32\testhai\Scripts
+   - 进入该目录 运行`activate` 即可开启进入该虚拟环境
+   - 退出虚拟环境 输入`deactivate`
